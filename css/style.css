@@ -1,0 +1,150 @@
+:root {
+    --background-gradient1-color: #A4EEFE;
+    --background-gradient2-color: #FFFFFF;
+    --primary-button-color: #2C2C2C;
+    --secondary-button-color: #58C4FF;
+    --black-text-color: #464646; 
+    --white-text-color: #DADADA;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/*======================== HEADER ============================= */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    padding: 0 32px;
+    width: 100%;
+    height: 112px;
+    z-index: 100;
+}
+
+header .wl-logo {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+header .wl-logo .image-logo {
+    height: 48px;
+}
+
+header .wl-logo .title-logo {
+    font-size: 32px;
+    color: var(--black-text-color);
+    font-weight: 500;
+}
+
+header .switch-theme-btn {
+    width: 50px;
+    height: 50px;
+    border: solid 3px;
+    border-radius: 50px;
+    background: #FFFFFF;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+header .switch-theme-btn i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+}
+
+.search-section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 120vh;
+    background-image: linear-gradient(var(--background-gradient1-color), var(--background-gradient2-color));
+}
+
+.search-section .main-txt {
+    font-size: 32px;
+    font-weight: 500;
+    margin-top: 160px;
+    color: var(--black-text-color);
+}
+
+.search-section .form {
+    margin-top: 84px;
+    text-align: center;
+}
+
+
+.search-section .form .label {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--black-text-color);
+}
+
+.search-section .form .form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.search-section .form .form-buttons .search-inp, .search-btn, .random-city-btn {
+    height: 54px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 8px;
+}
+
+.search-section .form .form-buttons .search-inp {
+    width: 240px;
+    padding: 16px;
+    border: solid #898989 1px;
+}
+
+.search-section .form .form-buttons .search-btn {
+    width: 140px;
+    background-color: var(--primary-button-color);
+    color: var(--white-text-color);
+    cursor: pointer;
+}
+
+.search-section .form .form-buttons .random-city-btn {
+    width: 54px;
+    height: 54px;
+    background-color: var(--secondary-button-color);
+    cursor: pointer;
+}
+
+.search-section .balloon-illustration {
+    position: absolute;
+    left: 0;
+    top: 110px;
+}
+
+.search-section .beach-illustration {
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+}
+
+
+.result-section {
+    height: 100vh;
+}
