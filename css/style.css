@@ -1,19 +1,30 @@
 :root {
+    --real-black-text-color: #000;
+    --black-text-color: #464646; 
+    --gray-text-color: #757575;
+    --white-text-color: #DADADA;
+
+
     /* LIGHT THEME */
     --background-lighttheme-gradient1-color: #A4EEFE;
     --background-lighttheme-gradient2-color: #FFFFFF;
     --primary-lighttheme-button-color: #2C2C2C;
     --secondary-lighttheme-button-color: #58C4FF;
-    --black-lighttheme-text-color: #464646; 
-    --gray-lighttheme-text-color: #757575;
-    --white-lighttheme-text-color: #DADADA;
     --border-lighttheme-color: #DADADA;
+    --result-box-lighttheme-background: #FFFFFF;
+    --footer-lighttheme-background: #FFFFFF;
+    --switch-theme-lighttheme-background: #000000;
+    --switch-theme-lighttheme-color: #FFFFFF;
     
     
     /* DARK THEME */
     --background-darktheme-gradient1-color: #171340;
     --background-darktheme-gradient2-color: #47445F;
     --border-darktheme-color: #272635;
+    --result-box-darktheme-background: #777F97;
+    --footer-darktheme-background: #000000;
+    --switch-theme-darktheme-background: #58C4FF;
+    --switch-theme-darktheme-color: #FFFF00;
     
 
     /* ACTUAL THEME */
@@ -21,10 +32,15 @@
     --background-gradient2-color: var(--background-lighttheme-gradient2-color);
     --primary-button-color: var(--primary-lighttheme-button-color);
     --secondary-button-color: var(--secondary-lighttheme-button-color);
-    --black-text-color: var(--black-lighttheme-text-color); 
-    --gray-text-color: var(--gray-lighttheme-text-color);
-    --white-text-color: var(--white-lighttheme-text-color);
+    --primary-text-color: var(--black-text-color); 
+    --secondary-text-color: var(--gray-text-color);
+    --inverted-text-color: var(--white-text-color);
     --border-color: var(--border-lighttheme-color);
+    --result-box-background: var(--result-box-lighttheme-background);
+    --footer-background: var(--footer-lighttheme-background);
+
+    --switch-theme-background: var(--switch-theme-lighttheme-background);
+    --switch-theme-color: var(--switch-theme-lighttheme-color);
 }
 
 * {
@@ -58,7 +74,7 @@ img {
 
 .primary-button {
     background-color: var(--primary-button-color);
-    color: var(--white-text-color);
+    color: var(--inverted-text-color);
 }
 
 .secondary-button {
@@ -89,7 +105,7 @@ header .wl-logo .image-logo {
 
 header .wl-logo .title-logo {
     font-size: 32px;
-    color: var(--black-text-color);
+    color: var(--primary-text-color);
     font-weight: 500;
 }
 
@@ -101,6 +117,13 @@ header .switch-theme-btn {
     background: var(--background-gradient2-color);
     font-size: 24px;
     cursor: pointer;
+    transition: ease .2s;
+}
+
+header .switch-theme-btn:hover {
+    background: var(--switch-theme-background);
+    color: var(--switch-theme-color);
+    border: solid black;
 }
 
 header .switch-theme-btn i {
@@ -126,7 +149,7 @@ main {
     font-size: 32px;
     font-weight: 500;
     margin-top: 160px;
-    color: var(--black-text-color);
+    color: var(--primary-text-color);
 }
 
 .search-section .form {
@@ -139,7 +162,7 @@ main {
     font-size: 24px;
     font-weight: 500;
     margin-bottom: 20px;
-    color: var(--black-text-color);
+    color: var(--primary-text-color);
 }
 
 .search-section .form .form-buttons {
@@ -179,7 +202,11 @@ main {
 
 
 .result-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 700px;
+    background-color: var(--background-gradient2-color);
 }
 
 .result-section .result-box {
@@ -187,8 +214,6 @@ main {
     display: flex;
     gap: 50px;
     height: 510px;
-    background-color: var(--background-gradient2-color);
-    
 }
 
 .result-section .result-box .weather-data, .city-image {
@@ -201,6 +226,7 @@ main {
     height: 100%;
     box-shadow: 8px 10px 23.6px 0px #00000040;
     padding: 40px;
+    background-color: var(--result-box-background);
 }
 
 .result-section .result-box .weather-data .location{
@@ -215,7 +241,7 @@ main {
 
 .result-section .result-box .weather-data .location h2 {
     font-size: 20px;
-    color: var(--black-text-color);
+    color: var(--real-black-text-color);
 }
 
 .result-section .result-box .weather-data .location .country-flag {
@@ -226,13 +252,13 @@ main {
 .result-section .result-box .weather-data .temperature {
     margin-top: 20px;
     margin-left: 44px;
-    color: var(--gray-text-color);
+    color: var(--secondary-text-color);
     font-size: 16px;
 }
 
 .result-section .result-box .weather-data .temperature span {
     display: block;
-    color: var(--black-text-color);
+    color: var(--real-black-text-color);
     font-size: 32px;
     font-weight: 600;
 }
@@ -253,7 +279,7 @@ main {
 }
 
 .result-section .result-box .weather-data .stats li .option {
-    color: var(--gray-text-color);
+    color: var(--secondary-text-color);
 }
 
 .result-section .result-box .weather-data .stats li .value {
@@ -278,6 +304,7 @@ main {
 }
 
 footer {
+    background: var(--footer-background);
     border-top: solid 1px var(--border-color);
     display: flex;
     align-items: center;
@@ -297,12 +324,13 @@ footer .social-media .weatherlobby-logo {
 }
 
 footer .social-media a {
-    color: #000;
+    color: var(--primary-text-color);
     font-size: 32px;
     margin-right: 8px;
 }
 
 footer p {
+    color: var(--primary-text-color);
     margin: 0 auto;
     text-align: center;
     font-weight: 500;
