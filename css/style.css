@@ -20,7 +20,7 @@
     /* DARK THEME */
     --background-darktheme-gradient1-color: #171340;
     --background-darktheme-gradient2-color: #47445F;
-    --border-darktheme-color: #272635;
+    --border-darktheme-color: #323144;
     --result-box-darktheme-background: #777F97;
     --footer-darktheme-background: #000000;
     --switch-theme-darktheme-background: #58C4FF;
@@ -75,10 +75,35 @@ img {
 .primary-button {
     background-color: var(--primary-button-color);
     color: var(--inverted-text-color);
+    transition: all 0.3s ease-in-out;
 }
+    
+.primary-button:hover {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.687);
+    transform: translateY(-4px);
+}
+
+.primary-button:active, .primary-button.active-animating {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.687);
+    transform: translateY(2px);
+    border: 1px solid rgb(0, 238, 255);
+    background-color: rgb(36, 72, 108);
+}
+
 
 .secondary-button {
     background-color: var(--secondary-button-color);
+    transition: all 0.3s ease-in-out;
+}
+
+.secondary-button:hover {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.687);
+    transform: translateY(-4px);
+}
+.secondary-button:active, .secondary-button.active-animating{
+    transform: translateY(2px);
+    background-color: rgb(255, 255, 255);
+    transition: all 0.2s ease-in-out;
 }
 
 header {
@@ -155,6 +180,7 @@ main {
 .search-section .form {
     margin-top: 84px;
     text-align: center;
+    z-index: 1;
 }
 
 
@@ -183,11 +209,111 @@ main {
     font-size: 20px;
 }
 
+
 .search-section .form .form-buttons .random-city-btn {
     width: 54px;
     height: 54px;
 }
 
+.search-section .loader-container {
+    margin-top: 100px;
+    visibility: hidden;
+}
+
+.unique-wrapper-123 {
+    width: 100px;
+    height: 60px;
+    position: relative;
+    z-index: 1;
+  }
+
+.unique-circle-001,
+.unique-circle-002,
+.unique-circle-003 {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #000000;
+    left: 20%;
+    transform-origin: 50%;
+    animation: unique-circle-animation-001 .5s alternate infinite ease;
+}
+
+@keyframes unique-circle-animation-001 {
+0% {
+    top: 60px;
+    height: 5px;
+    border-radius: 50px 50px 25px 25px;
+    transform: scaleX(1.7);
+}
+
+40% {
+    height: 20px;
+    border-radius: 50%;
+    transform: scaleX(1);
+}
+
+100% {
+    top: 0%;
+}
+}
+
+.unique-circle-002 {
+    left: 45%;
+    animation-delay: .2s;
+}
+
+.unique-circle-003 {
+    left: auto;
+    right: 15%;
+    animation-delay: .3s;
+}
+
+.unique-shadow-001,
+.unique-shadow-002,
+.unique-shadow-003 {
+    width: 20px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 62px;
+    transform-origin: 50%;
+    z-index: -1;
+    left: 18%;
+    filter: blur(1px);
+    animation: unique-shadow-animation-001 .5s alternate infinite ease;
+}
+
+@keyframes unique-shadow-animation-001 {
+    0% {
+        transform: scaleX(1.5);
+    }
+
+    40% {
+        transform: scaleX(1);
+        opacity: .5;
+    }
+
+    100% {
+        transform: scaleX(.2);
+        opacity: .2;
+    }
+}
+
+.unique-shadow-002 {
+    left: 42%;
+    animation-delay: .2s;
+}
+
+.unique-shadow-003 {
+    left: 68%;
+    right: 15%;
+    animation-delay: .3s;
+}
+
+  
 .search-section .balloon-illustration {
     position: absolute;
     left: 0;
@@ -200,12 +326,28 @@ main {
     bottom: 0px;
 }
 
+@keyframes flutuar {
+    0% {
+      transform: translateY(0);     
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .flutuando {
+    animation: flutuar 2.5s ease-in-out infinite;
+  }
+
 
 .result-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 700px;
+    height: 800px;
     background-color: var(--background-gradient2-color);
 }
 
@@ -245,8 +387,10 @@ main {
 }
 
 .result-section .result-box .weather-data .location .country-flag {
-    font-size: 26px;
-    margin-left: auto
+    margin-left: auto;
+    border: var(--border-color) solid 2px;
+    padding: 0 5px;
+    background-color: #FFF;
 }
 
 .result-section .result-box .weather-data .temperature {
@@ -289,6 +433,7 @@ main {
 .result-section .result-box .weather-data .rechoose-btn {
     padding: 10px;
     margin-left: 44px;
+    width: fit-content;
 }
 
 .result-section .result-box .city-image {
@@ -315,7 +460,6 @@ footer {
 footer .social-media {
     user-select: none;
     width: fit-content;
-    position: absolute;
 }
 
 footer .social-media .weatherlobby-logo {
@@ -329,9 +473,17 @@ footer .social-media a {
     margin-right: 8px;
 }
 
-footer p {
+footer p {  
+    font-weight: 500;
     color: var(--primary-text-color);
+}
+footer .warning-text {
+    width: 500px;
     margin: 0 auto;
     text-align: center;
-    font-weight: 500;
+}
+
+footer .copyright-text {
+    margin: 0 auto;
+    text-align: center;
 }

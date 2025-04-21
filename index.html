@@ -12,6 +12,8 @@
 
 
     <title>WeatherLobby</title>
+    <script src="https://unpkg.com/scrollreveal@4.0.0/dist/scrollreveal.min.js"></script>
+    <script src="js/dynamic-styles.js" defer></script>
     <script src="js/script.js" defer></script>
 </head>
 <body>
@@ -28,73 +30,87 @@
     <main>
         <section class="search-section" id="search-section">
 
-            <img id="first-illustration" class="balloon-illustration" src="img/ballon-illustration.png" alt="" aria-hidden="true">
-            <img id="second-illustration" class="beach-illustration" src="img/beach-illustration.png" alt="" aria-hidden="true">
+            <img id="first-illustration" class="balloon-illustration slide-in-img flutuando" src="img/ballon-illustration.png" alt="" aria-hidden="true">
+            <img id="second-illustration" class="beach-illustration slide-in-img" src="img/beach-illustration.png" alt="" aria-hidden="true">
 
             <h2 class="main-txt">Conectando você ao clima do mundo</h2>
             <div class="form">
                 <p class="label">Veja o clima de alguma cidade:</p>
                 <div class="form-buttons">
-                    <input class="search-inp" type="text" placeholder="Tokyo">
-                    <button class="button primary-button">
+                    <input class="search-inp" type="text" placeholder="Houston">
+                    <button id="search-btn" class="button primary-button search-btn" >
                         <i class="fa-solid fa-magnifying-glass"></i>
                         Procurar
                     </button>
-                    <button class="random-city-btn button secondary-button">
+                    <button id="random-btn" class="random-city-btn button secondary-button">
                         <i class="fa-solid fa-shuffle"></i>
                     </button>
                 </div>
             </div>
+
+
+            <div class="loader-container">
+                <div class="unique-wrapper-123">
+                    <div class="unique-circle-001"></div>
+                    <div class="unique-circle-002"></div>
+                    <div class="unique-circle-003"></div>
+                    <div class="unique-shadow-001"></div>
+                    <div class="unique-shadow-002"></div>
+                    <div class="unique-shadow-003"></div>
+                </div>
+            </div>
         </section>
 
-        <section class="result-section">
+        <section id="result-section" class="result-section">
             <div class="result-box">
                 <div class="weather-data">
                     <div class="location">
                         <img src="img/cloud.svg" alt="" aria-hidden="true">
-                        <h2>O clima em Brasília, Distrito Federal hoje</h2>
-                        <img class="country-flag" src="https://cdn-icons-png.flaticon.com/512/330/330430.png" alt="">
+                        <h2>O clima em <span id="city-name"></span>, <span id="state-name"></span> hoje</h2>
+                        <img class="country-flag" src="https://flagsapi.com/BR/flat/64.png" alt="country flag">
                     </div>
 
                     <p class="temperature">
                         Temperatura
-                        <span>22ºC</span>
+                        <span id="temperature">NULL</span>
                     </p>
 
                     <ul class="stats">
                         <li>
                             <i class="fa-solid fa-temperature-quarter"></i>
                             <p class="option">Max./Min</p>
-                            <p class="value">--/19º</p>
+                            <p  class="value">
+                                <span id="temp-max">--</span>/<span id="temp-min">--</span>
+                            </p>
                         </li>
                         <li>
                             <i class="fa-solid fa-droplet"></i>
                             <p class="option">Umidade</p>
-                            <p class="value">83%</p>
+                            <p id="humidity" class="value">--</p>
                         </li>
                         <li>
                             <i class="fa-solid fa-arrow-down"></i>
                             <p class="option">Pressão</p>
-                            <p class="value">1021 mb</p>
+                            <p id="pressure" class="value">--</p>
                         </li>
                         <li>
                             <i class="fa-solid fa-eye"></i>
                             <p class="option">Visibilidade</p>
-                            <p class="value">10.2 km</p>
+                            <p id="visibility" class="value">--</p>
                         </li>
                         <li>
                             <i class="fa-solid fa-wind"></i>
                             <p class="option">Vento</p>
-                            <p class="value">13 km/h</p>
+                            <p id="wind" class="value">--</p>
                         </li>
                     </ul>
-                    <a class="button primary-button rechoose-btn" href="#search-section">
+                    <button id="rechoose-btn" class="button primary-button rechoose-btn">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         Escolher outra cidade
-                    </a>
+                    </button>
                 </div>
                 <div class="city-image">
-                    <img src="https://i0.wp.com/meugodrive.wpcomstaging.com/wp-content/uploads/2023/11/Visao-aerea-do-Eixo-Monumentla-em-Brasilia.png?fit=800%2C400&ssl=1" alt="Imagem da cidade">
+                    <img id="city-image" src="" alt="Imagem da cidade">
                 </div>
             </div>
         </section>
@@ -110,7 +126,8 @@
                 <i class="fa-brands fa-linkedin"></i>
             </a>
         </div>
-        <p class="copyright-text">Copyright © WeatherLobby - All rights reserved</p>
+        <p class="warning-text">Os dados climáticos apresentados neste site são obtidos por meio de API de terceiros. A acurácia e atualização das informações dependem diretamente da fonte externa. Portanto, podem ocorrer variações ou imprecisões nos dados exibidos.</p>
+        <p class="copyright-text">Copyright © WeatherLobby - Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
