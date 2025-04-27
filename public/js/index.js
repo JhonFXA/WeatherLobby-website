@@ -3,11 +3,9 @@ dotenv.config();
 import express from 'express';
 import rateLimit from 'express-rate-limit';
 import cors from 'cors';
-import weather from './weather/index.js';
+import weather from '../../weather/index.js';
 
 const app = express();
-
-
 
 const port = 3000;
 
