@@ -37,7 +37,7 @@ function animateButton(button) {
 
 async function getWeatherData(city) {
     try {
-        const response = await fetch('http://localhost:3000/weather', {
+        const response = await fetch('https://weatherlobby.glitch.me/weather', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
