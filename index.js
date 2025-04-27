@@ -13,7 +13,7 @@ const port = 3000;
 
 app.use(express.json());
 
-const whiteList = ['http://127.0.0.1', 'http://127.0.0.1:5500']
+const whiteList = ['http://127.0.0.1', 'http://127.0.0.1:5500', 'https://weatherlobby.netlify.app']
 const corsOptions = {
   origin: function (origin, callback) {
     if (whiteList.indexOf(origin) !== -1 || !origin) {
