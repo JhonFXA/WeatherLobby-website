@@ -5,30 +5,29 @@ Um site simples que exibe dados climáticos de cidades ao redor do mundo.
 
 ![image](https://github.com/user-attachments/assets/6cf2c9dd-e192-4d15-b03b-1e0e9f8e19a7)
 
-## Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
+### Frontend
 - HTML5
 - CSS3
 - JavaScript (Vanilla JS)
-- Figma
+
+### Backend
+- Node.js
+
+### APIs
 - API de dados climáticos: [OpenWeatherMap](https://openweathermap.org/)
 - API de imagens: [Unsplash](https://unsplash.com/developers)
 
-## Como usar
+### Design
+- Figma (UI/UX)
 
-1. **Clone ou baixe este repositório:**
-   ```bash
-   git clone https://github.com/JhonFXA/weatherlobby.git
-2. **Obtenha suas chaves de API:**<br>
-   Acesse [OpenWeatherMap](https://openweathermap.org/), procure por Current Weather Data e se inscreva gratuitamente para obter uma chave.<br>
-   Acesse [Unsplash](https://unsplash.com/developers), registre-se e vá para Your Apps, crie uma aplicação para obter sua chave.<br><br>
-3. **Coloque suas chaves de API no código:**<br>
-   Abra o arquivo script.js e edite as seguintes linhas de código, colocando suas chaves geradas.
-   ```bash
-   const API_WEATHER_KEY = "COLOQUE AQUI SUA CHAVE DO OPENWEATHERMAP"
-   const API_IMAGES_KEY = "COLOQUE AQUI SUA CHAVE DO UNSPLASH"
+## 📖 Como usar
 
-4. Abra o arquivo index.html no seu navegador.
+1. Visite o site: https://weatherlobby.netlify.app
+2. Digite o nome de uma cidade na barra de pesquisa e aperte "Enter" ou clique no botão "Procurar".
+3. Alternativamente, clique no botão azul de aleatório para obter dados climáticos de uma cidade aleatória.
+
 
 ## ⚠️ Aviso
 **As informações climáticas são fornecidas por uma API pública e podem conter imprecisões.**
